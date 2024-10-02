@@ -1,0 +1,32 @@
+---
+all:
+  children:
+    maas_pacemaker:
+      children:
+        maas_corosync:
+          hosts:
+            ubt22-node01.jtest.pivotal.io
+            ubt22-node02.jtest.pivotal.io
+            ubt22-node03.jtest.pivotal.io
+    maas_postgres:
+      hosts:
+        ubt22-node01.jtest.pivotal.io:
+        ubt22-node02.jtest.pivotal.io:
+        ubt22-node03.jtest.pivotal.io:
+    maas_proxy:
+      hosts:
+        ubt22-node09.jtest.pivotal.io:
+    maas_postgres_proxy:
+      hosts:
+        ubt22-node04.jtest.pivotal.io:
+    maas_region_controller:
+      hosts:
+        ubt22-node04.jtest.pivotal.io:
+        ubt22-node05.jtest.pivotal.io:
+        ubt22-node06.jtest.pivotal.io:
+    maas_rack_controller:
+      hosts:
+        ubt22-node04.jtest.pivotal.io:
+        ubt22-node08.jtest.pivotal.io:
+        ubt22-node09.jtest.pivotal.io:
+

@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: "{{ power_title }} Virtual Machines Without the Answer Param"
+      vars:
+        vmware:
+          esxi_hostname: "192.168.0.231"
+          esxi_username: "root"
+          esxi_password: "Changeme34#$"
+      vmware_guest_powerstate:
+        hostname: "{{ vmware.esxi_hostname }}"
+        username: "{{ vmware.esxi_username }}"
+        password: "{{ vmware.esxi_password }}"
+        validate_certs: false
+        name: "{{ item }}"
+        state: "{{ power_state }}"
+      loop:
+        - rk9-freeipa
+        - ubt22-node01
+        - ubt22-node02
+        - ubt22-node03
+        - ubt22-node04
+        - ubt22-node05
+        - ubt22-node06
+        - ubt22-node07
+        - ubt22-node08
+        - ubt22-node09
+        - "VMware vCenter Server"
+
